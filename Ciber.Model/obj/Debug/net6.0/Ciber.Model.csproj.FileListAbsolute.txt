@@ -1,0 +1,16 @@
+C:\Users\nguye\source\repos\Ciber\Ciber.Model\bin\Debug\net6.0\Ciber.Model.deps.json
+C:\Users\nguye\source\repos\Ciber\Ciber.Model\bin\Debug\net6.0\Ciber.Model.runtimeconfig.json
+C:\Users\nguye\source\repos\Ciber\Ciber.Model\bin\Debug\net6.0\Ciber.Model.dll
+C:\Users\nguye\source\repos\Ciber\Ciber.Model\bin\Debug\net6.0\Ciber.Model.pdb
+C:\Users\nguye\source\repos\Ciber\Ciber.Model\obj\Debug\net6.0\Ciber.Model.csproj.AssemblyReference.cache
+C:\Users\nguye\source\repos\Ciber\Ciber.Model\obj\Debug\net6.0\Ciber.Model.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\nguye\source\repos\Ciber\Ciber.Model\obj\Debug\net6.0\Ciber.Model.AssemblyInfoInputs.cache
+C:\Users\nguye\source\repos\Ciber\Ciber.Model\obj\Debug\net6.0\Ciber.Model.AssemblyInfo.cs
+C:\Users\nguye\source\repos\Ciber\Ciber.Model\obj\Debug\net6.0\Ciber.Model.csproj.CoreCompileInputs.cache
+C:\Users\nguye\source\repos\Ciber\Ciber.Model\obj\Debug\net6.0\Ciber.Model.dll
+C:\Users\nguye\source\repos\Ciber\Ciber.Model\obj\Debug\net6.0\refint\Ciber.Model.dll
+C:\Users\nguye\source\repos\Ciber\Ciber.Model\obj\Debug\net6.0\Ciber.Model.pdb
+C:\Users\nguye\source\repos\Ciber\Ciber.Model\obj\Debug\net6.0\Ciber.Model.genruntimeconfig.cache
+C:\Users\nguye\source\repos\Ciber\Ciber.Model\obj\Debug\net6.0\ref\Ciber.Model.dll
+C:\Users\nguye\source\repos\Ciber\Ciber.Model\bin\Debug\net6.0\appsettings.Development.json
+C:\Users\nguye\source\repos\Ciber\Ciber.Model\bin\Debug\net6.0\appsettings.json

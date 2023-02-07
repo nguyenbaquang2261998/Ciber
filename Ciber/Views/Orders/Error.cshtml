@@ -1,0 +1,20 @@
+﻿@using Ciber.Model
+@using X.PagedList.Mvc.Core;
+@using X.PagedList;
+
+@if (Model != null)
+{
+    <div class="card">
+        <div class="card-header">
+            <h2>An error has occurred</h2>
+        </div>
+        <div class="card-bpdy">
+            <p>@Model</p>
+        </div>
+    </div>
+    <a href="/Orders/Create">Back to create order</a>
+}
+else
+{
+    <span>Not found</span>
+}

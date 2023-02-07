@@ -1,0 +1,61 @@
+﻿@using Ciber.Model
+@using X.PagedList;
+@using X.PagedList.Mvc.Core;
+@using X.PagedList.Web.Common
+
+@if (Model != null)
+{
+    <div class="card">
+        <div class="card-header">
+            <h2>Manage Orders</h2>
+        </div>
+        <div class="card-body">
+            @using (Html.BeginForm("Index", "Orders", FormMethod.Get))
+            {
+                <p>
+                    Find by name: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+                    <input type="submit" value="Search" />
+                </p>
+            }
+            <table class="table table-data2">
+                <thead>
+                    <tr>
+                        <th class="text-center" style="text-decoration:none">@Html.ActionLink("Product Name", "Index", new { sortOrder = ViewBag.NameSortParm, currentFilter=ViewBag.CurrentFilter })</th>
+                        <th class="text-center">Category Name</th>
+                        <th class="text-center">Customer Name</th>
+                        <th class="text-center">Order Date</th>
+                        <th class="text-center">Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr class="tr-shadow">
+                            <td class="text-center">@item.Product.Name</td>
+                            <td class="text-center">@item.Product.Category.Name</td>
+                            <td class="text-center">@item.Customer.Name</td>
+                            <td class="text-center">@item.OrderDate.ToString("dd-MMM-yyyy")</td>
+                            <td class="text-center">@item.Amount</td>
+                        </tr>
+                        <tr class="spacer"></tr>
+                    }
+                </tbody>
+            </table>
+            <br />
+            Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+                @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page = page}),
+                        new PagedListRenderOptions
+                        {
+                            DisplayItemSliceAndTotal = true,
+                            ContainerDivClasses = new[] {"navigation"},
+                            LiElementClasses = new[] {"page-item"},
+                            PageClasses = new[] {"page-link"},
+                        })
+        </div>
+    </div>
+    <a href="/Orders/Create">Create New Order</a>
+}
+else
+{
+    <span>Not found orders</span>
+}
