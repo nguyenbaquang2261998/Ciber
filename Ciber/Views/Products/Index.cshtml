@@ -1,0 +1,120 @@
+﻿@model IEnumerable<Ciber.Model.Product>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="row">
+    <div class="col-md-12">
+        @if (Model != null && Model.Count() > 0)
+        {
+            <h3 class="title-5 m-b-35">Quản lý: Sản phẩm</h3>
+            <div class="table-data__tool">
+                <div class="table-data__tool-left">
+                    <form class="form-header" action="/Products/Filter" method="post">
+                        <input id="keyword" value="" class="au-input au-input--xl" type="text" name="keyword" placeholder="Tìm kiếm sản phẩm" />
+                        <button class="au-btn--submit" type="submit">
+                            <i class="zmdi zmdi-search"></i>
+                        </button>
+                    </form>
+                </div>
+                <div class="table-data__tool-right">
+                    <a href="/products/create" class="au-btn au-btn-icon au-btn--green au-btn--small">
+                        <i class="zmdi zmdi-plus"></i>Thêm sản phẩm
+                    </a>
+                </div>
+            </div>
+            <a href="/products/search/0">
+                <i class="fas fa-seach"></i>Sắp xếp theo số lượng
+            </a>
+            <div class="table-responsive table-responsive-data2">
+                <table class="table table-data2">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Danh mục</th>
+                            <th>Tên sản phẩm</th>
+                            <th>Hình ảnh</th>
+                            <th>Giá</th>
+                            <th>Số lượng</th>
+                            <th>Thao tác</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr class="tr-shadow">
+                                <td>@item.Id</td>
+                                <td>@item.Category.Name</td>
+                                <td>@item.Name</td>
+                                <td class="text-center">
+                                    @if (!String.IsNullOrEmpty(item.Image))
+                                    {
+                                        <div>
+                                            <img src="@Url.Content("~/upload/"+item.Image)" width="110" style="height:auto">
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div>
+                                            Image not found
+                                        </div>
+                                    }
+                                </td>
+                                <td>@item.Price</td>
+                                <td>@item.Quantity</td>
+                                <td>
+                                    <div class="table-data-feature">
+                                        <span class="item" data-toggle="tooltip" data-placement="top" title="Cập nhật">
+                                            <a href="/products/update/@item.Id"><i class="zmdi zmdi-edit"></i></a>
+                                        </span>
+                                        <span class="item" data-toggle="tooltip" data-placement="top" title="Xóa">
+                                            <a onclick="Delete(@item.Id)"><i class="zmdi zmdi-delete"></i></a>
+                                        </span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="spacer"></tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+    </div>
+</div>
+<script>
+    function Delete(Id) {
+        var data = {
+            Id: Id,
+        };
+        var title = "Bạn có đồng ý xóa dữ liệu này không?";
+        var url = '/Products/Delete/';
+        swal({
+            title: title,
+            icon: "warning",
+            buttons: {
+                ok: "Xác nhận",
+                cancel: "Hủy",
+            }
+        }).then((isConfirm) => {
+            if (isConfirm != 'ok') {
+
+            } else {
+                $.post(url, data,
+                    function(rs) {
+                        if (rs.status > 0) {
+                            swal({
+                                title: "Xóa thành công!",
+                                text: "Dữ liệu của bạn đã được cập nhật!",
+                                icon: "success",
+                            }).then(function(isConfirm) {
+                                window.location.href = '/Products';
+                            });
+                        }
+                        else {
+                            toastr.error(rs.message);
+                        }
+                    });
+            }
+        });
+    }
+</script>

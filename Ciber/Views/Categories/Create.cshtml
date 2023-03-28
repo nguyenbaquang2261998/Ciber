@@ -1,0 +1,33 @@
+﻿@model Ciber.Model.Category
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, AuthoringTagHelpers
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        <strong>Tạo mới</strong> 
+    </div>
+    <div class="card-body card-block">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="row">
+                <div class="col-md-8 form-group">
+                    <label asp-for="Name" class="control-label">Tên chủ đề</label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label">Mô tả ngắn</label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <button type="submit" value="Create" class="btn btn-primary btn-sm">
+                <i class="fas fa-subway"></i> Lưu
+            </button>
+        </form>
+    </div>
+</div>

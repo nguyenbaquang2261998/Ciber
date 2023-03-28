@@ -1,16 +1,28 @@
 ﻿@using Ciber.Model
 @model Customer
 
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AccessLayout.cshtml";
+}
+
 <form asp-controller="Access" asp-action="Login" method="post">
-    <h1>Login</h1>
-    <input type="text" placeholder="User Name" asp-for="UserName"/>
-    <input type="password" placeholder="Password" asp-for="Password"/>
+
+    <div class="form-group">
+        <label>Tài khoản</label>
+        <input asp-for="UserName" type="text" class="au-input au-input--full" />
+    </div>
+    <div class="form-group">
+        <label>Mật khẩu</label>
+        <input asp-for="Password" type="password" class="au-input au-input--full" />
+    </div>
     <label>
-        <input type="checkbox" asp-for="KeepLoggedIn"/>
+        <input type="checkbox" asp-for="KeepLoggedIn" />
         Keep Me Logged In
     </label>
+    <button type="submit" class="au-btn au-btn--block au-btn--green m-b-20">Đăng nhập</button>
 
-    <button type="submit">Login</button>
+
     @if (ViewData["ValidateMessage"] != null)
     {
         <span>@ViewData["ValidateMessage"]</span>

@@ -69,7 +69,7 @@ namespace Ciber
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Access}/{action=Login}/{id?}");
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
             });
 
             loggerFactory.AddFile("Logs/app-{Date}.txt");

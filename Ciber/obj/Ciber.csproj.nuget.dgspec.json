@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\nguye\\source\\repos\\Ciber\\Ciber\\Ciber.csproj": {}
+    "E:\\Webshop 2023\\Ciber\\Ciber\\Ciber.csproj": {}
   },
   "projects": {
-    "C:\\Users\\nguye\\source\\repos\\Ciber\\Ciber\\Ciber.csproj": {
+    "E:\\Webshop 2023\\Ciber\\Ciber\\Ciber.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\nguye\\source\\repos\\Ciber\\Ciber\\Ciber.csproj",
+        "projectUniqueName": "E:\\Webshop 2023\\Ciber\\Ciber\\Ciber.csproj",
         "projectName": "Ciber",
-        "projectPath": "C:\\Users\\nguye\\source\\repos\\Ciber\\Ciber\\Ciber.csproj",
+        "projectPath": "E:\\Webshop 2023\\Ciber\\Ciber\\Ciber.csproj",
         "packagesPath": "C:\\Users\\nguye\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\nguye\\source\\repos\\Ciber\\Ciber\\obj\\",
+        "outputPath": "E:\\Webshop 2023\\Ciber\\Ciber\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
           "C:\\Users\\nguye\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,7 +26,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "http://172.16.0.66:8083/v3/index.json": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -43,23 +46,27 @@
           "dependencies": {
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[7.0.2, )"
+              "version": "[6.0.15, )"
             },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[7.0.2, )"
+              "version": "[6.0.15, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[7.0.2, )"
+              "version": "[6.0.15, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[7.0.2, )"
+              "version": "[6.0.15, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[6.0.13, )"
             },
             "Serilog.Extensions.Logging.File": {
               "target": "Package",

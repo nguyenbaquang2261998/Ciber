@@ -1,0 +1,51 @@
+﻿@model Ciber.Model.Product
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, AuthoringTagHelpers
+@{
+    ViewData["Title"] = "Update";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        <strong>Cập nhật sản phẩm</strong> 
+    </div>
+    <div class="card-body card-block">
+        <form method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="CategoryId" class="control-label">Chọn danh mục</label>
+                @Html.DropDownListFor(model => model.CategoryId, ViewBag.ListCategories as SelectList, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label">Tên sản phẩm</label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price" class="control-label">Giá <span class="text-info"> vnđ</span></label>
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Quantity" class="control-label">Số lượng</label>
+                <input asp-for="Quantity" class="form-control" />
+                <span asp-validation-for="Quantity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label">Mô tả ngắn <span class="text-info"> - Tối đa 150 kí tự (tốt nhất là 120)</span> </label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2" asp-for="Image">Ảnh sản phẩm</label>
+                <div class="col-md-10">
+                    <input class="btn btn-info" type="file" name="file" />
+                </div>
+            </div>
+            <button type="submit" value="Create" class="btn btn-primary btn-sm">
+                <i class="fas fa-subway"></i> Hoàn tất
+            </button>
+        </form>
+    </div>
+</div>

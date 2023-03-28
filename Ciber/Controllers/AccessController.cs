@@ -55,7 +55,7 @@ namespace Ciber.Controllers
 
                     await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity), properties);
 
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "Admin");
                 }
 
                 ViewData["ValidateMessage"] = "Not found user, please login!";
