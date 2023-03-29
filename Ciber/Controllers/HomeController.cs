@@ -1,12 +1,36 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Ciber.Model;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace Ciber.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly CiberDbContext _context;
+        public HomeController(CiberDbContext context)
+        {
+            _context = context;
+        }
         public IActionResult Index()
         {
             return View();
+        }
+
+        public IActionResult About()
+        {
+            return View();
+        }
+
+        public IActionResult Contact()
+        {
+            return View();
+        }
+
+        public IActionResult Product(int id)
+        {
+            var products = _context.Products.Where(x => x.CategoryId == id)
+                .Include(x => x.Category).ToList();
+            return View(products);
         }
     }
 }
