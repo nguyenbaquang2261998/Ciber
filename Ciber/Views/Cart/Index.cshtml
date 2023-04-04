@@ -1,0 +1,69 @@
+﻿@model Ciber.Model.Product
+
+@{ 
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_ClientLayout.cshtml";
+}
+
+<div class="container">
+    <div class="session-cart">
+        <h2 class="heading">Giỏ hàng của bạn</h2>
+        <div class="table-cart">
+            <table class="table table-striped">
+                <tbody>
+                    @foreach (var item in ViewBag.carts) {
+                        int total = item.Product.Price * item.Amount;
+                        <tr>
+                            <td class="cart-product">
+                                <a href=""><img src="~/images/@item.Product.Image" alt=""></a>
+                            </td>
+                            <td class="cart-description">
+                                <h4>@item.Product.Name</h4>
+                            </td>
+                            <td class="cart-price">
+                                <p>@string.Format("{0:##,#}", item.Product.Price) đ</p>
+                            </td>
+                            <td class="cart-quantity">
+                                <div class="choosenumber">
+                                    <a class="plus" href="/Cart/AddCart/@item.Product.Id"> <i class="fa fa-plus"></i> </a>
+                                    <input class="number-item" type="text" name="quantity" value="@item.Amount"
+                                            autocomplete="off" size="2">
+                                    <a class="minus" href="/Cart/DeleteCart/@item.Product.Id"> <i class="fa fa-minus"></i> </a>
+                                </div>
+                            </td>
+                            <td class="cart-total">
+                                <p class="price">Tạm tính: <h3 style="color:#f30c28">@string.Format("{0:##,#}", @total) đ</h3></p>
+                            </td>
+                            <td class="cart-delete">
+                                <a class="cart-quantity-delete" href="/Cart/DeleteCart/@item.Product.Id"><i class="fa fa-times"> Xóa</i></a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="payment">
+            <a class="btn btn-success check-out" href="/Cart/Checkout">Tiếp tục thanh toán</a>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $(".UpdateCart").click(function (event) {
+            event.preventDefault();
+            var quantity = $(".quantity_" + $(this).attr("data-id")).val();
+            $.ajax({
+                type: "POST",
+                url:"@Url.Action("UpdateCart","Cart")",
+                data: {
+                    id: $(this).attr("data-id"),
+                    quantity:quantity
+                },
+                success: function (result) {
+                    window.location.href = '@Url.Action("Index","Cart")';
+                }
+            });
+        });
+    });
+</script>
+

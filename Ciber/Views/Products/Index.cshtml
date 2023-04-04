@@ -36,7 +36,7 @@
                             <th>Hình ảnh</th>
                             <th>Giá</th>
                             <th>Số lượng</th>
-                            <th>Thao tác</th>
+                            <th class="text-center">Thao tác</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -46,7 +46,7 @@
                                 <td>@item.Id</td>
                                 <td>@item.Category.Name</td>
                                 <td>@item.Name</td>
-                                <td class="text-center">
+                                <td>
                                     @if (!String.IsNullOrEmpty(item.Image))
                                     {
                                         <div>

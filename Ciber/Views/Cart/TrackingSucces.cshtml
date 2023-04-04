@@ -1,0 +1,34 @@
+﻿@model Ciber.Entity.PackOrder
+@using Ciber.Enums;
+
+@{ ViewData["Title"] = "TrackingSucces";
+                Layout = "~/Views/Shared/_ClientLayout.cshtml"; }
+<div class="container">
+    <div class="section-brand-zone" style="margin-bottom: 20px; padding-bottom: 20px !important; padding-top: 20px!important;">
+        <div class="box-br" style="padding-bottom: 40px!important;">
+            <div class="card-header text-center">
+                <h2 font-weight:bold; font-size:20px>Theo dõi đơn hàng tại NAVI SHOP</h2>
+            </div>
+            <div class="card-body tracking-order">
+                @{ 
+                    string statusOrder = "Đơn hàng đang xử lý";
+                    if (Model.Status == OrderStatus.Process) {
+                        statusOrder = "Đơn hàng đang chuẩn bị";
+                    }
+                    if (Model.Status == OrderStatus.Deliver) {
+                        statusOrder = "Đơn hàng đang vận chuyển";
+                    }
+                    if (Model.Status == OrderStatus.Done) {
+                        statusOrder = "Đơn hàng đã được giao";
+                    }
+                }
+                <ul class="text-center info" style="font-size:16px">
+                    <li>Trạng thái đơn hàng: <span style="color:#00ff21";>@statusOrder</span></li>
+                    <li>Người nhận: @Model.CustomerName</li>
+                    <li>Địa chỉ: @Model.Address</li>
+                    <li>Số điện thoại: @Model.CustomerPhone</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,80 @@
+﻿@model Ciber.Entity.PackOrder
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, AuthoringTagHelpers
+@{
+    ViewData["Title"] = "Checkout";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<section id="cart_items">
+    <div class="container">
+        @using (Html.BeginForm("Payment", "Cart", FormMethod.Get)) {
+            <div class="session-cart">
+                <h2 class="heading">Xác nhận thành toán</h2>
+                <div class="table-cart">
+                    <table class="table table-striped">
+                        <tbody>
+                            @foreach (var item in ViewBag.carts) {
+                                int total = item.Product.Price * item.Amount;
+                                <tr>
+                                    <td class="cart-product">
+                                        <a href=""><img src="~/images/@item.Product.Image" alt=""></a>
+                                    </td>
+                                    <td class="cart-description">
+                                        <h4>@item.Product.Name</h4>
+                                    </td>
+                                    <td class="cart-quantity">
+                                        Số lượng: @item.Amount sản phẩm
+                                    </td>
+                                    <td class="cart-total">
+                                        <p class="price">Tạm tính: <h3 style="color:#f30c28">@string.Format("{0:##,#}", @total) đ</h3></p>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <div class="payment">
+                    @{
+                        int payment = 0;
+                        int totalPayment = 0;
+                        foreach (var item in ViewBag.carts) {
+                            payment = item.Product.Price * item.Amount;
+                            totalPayment += payment;
+                        }
+                    }
+                    Tổng tiền thanh toán: <h3 style="color:#f30c28">@string.Format("{0:##,#}", totalPayment) đ</h3>
+                </div>
+                <div class="step-one">
+                    <h2 class="heading" style="margin-bottom:0!important">Thông tin giao hàng</h2>
+                </div>
+                <div class="box-form">
+                    <h3 class="title">Quý khách vui lòng nhập chính xác các thông tin dưới đây để việc giao hàng được chính xác và nhanh nhất</h3>
+                    <div class="box-form-g">
+                        <div class="form-group">
+                            <div class="input-label">Họ tên người nhận<span class="c_org">*</span></div>
+                            <div class="form-input">
+                                <input asp-for="CustomerName" type="text" class="form-control" placeholder="VD: Nguyễn Văn A">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-label">Số điện thoại<span class="c_org">*</span></div>
+                            <div class="form-input">
+                                <input asp-for="CustomerPhone" type="text" placeholder="VD: 0355977774" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="input-label">Địa chỉ giao hàng<span class="c_org">*</span></div>
+                            <div class="form-input">
+                                <input asp-for="Address" type="text" placeholder="VD: 273 Nguyễn Trãi, Tuyên Quang" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn">Đặt hàng</button>
+                </div>
+            </div>
+        }
+    </div>
+</section>

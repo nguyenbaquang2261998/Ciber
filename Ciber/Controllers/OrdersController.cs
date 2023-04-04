@@ -20,9 +20,8 @@ namespace Ciber.Controllers
 
         public ViewResult Index(string sortOrder, string currentFilter, string searchString, int? page)
         {
-            var orders = _context.Orders
-               .Include(x => x.Product).ThenInclude(x => x.Category)
-               .Include(x => x.Customer);
+            var orders = _context.PackOrders
+               .Include(x => x.Orders);
 
             ViewBag.CurrentSort = sortOrder;
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "prod_desc" : "";
@@ -39,19 +38,17 @@ namespace Ciber.Controllers
 
             ViewBag.CurrentFilter = searchString;
 
-            if (!String.IsNullOrEmpty(searchString))
-            {
-                orders = _context.Orders
-               .Where(x => x.Product.Name.Contains(searchString) || x.Customer.Name.Contains(searchString))
-               .Include(x => x.Product).ThenInclude(x => x.Category)
-               .Include(x => x.Customer);
-            }
+            //if (!String.IsNullOrEmpty(searchString))
+            //{
+            //    orders = _context.PackOrders
+            //    .Include(x => x.Orders)
+            //   .Where(x => x.Orders.Any(p => p.Product.Name.Contains(searchString) || x.Orders.Any(p => p.Customer.Name.Contains(searchString))));
+            //}
             switch (sortOrder)
             {
                 case "prod_desc":
-                    orders = orders.OrderBy(s => s.Product.Name)
-                        .Include(x => x.Product).ThenInclude(x => x.Category)
-                        .Include(x => x.Customer);
+                    orders = orders.OrderBy(s => s.Id)
+                        .Include(x => x.Orders);
                     break;
             }
 

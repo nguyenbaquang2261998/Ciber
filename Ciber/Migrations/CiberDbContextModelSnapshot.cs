@@ -78,6 +78,22 @@ namespace Ciber.Migrations
                     b.ToTable("News");
                 });
 
+            modelBuilder.Entity("Ciber.Entity.PackOrder", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("PackOrders");
+                });
+
             modelBuilder.Entity("Ciber.Model.Category", b =>
                 {
                     b.Property<int>("Id")
@@ -148,12 +164,17 @@ namespace Ciber.Migrations
                     b.Property<DateTime>("OrderDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<int?>("PackOrderId")
+                        .HasColumnType("int");
+
                     b.Property<int>("ProductId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("CustomerId");
+
+                    b.HasIndex("PackOrderId");
 
                     b.HasIndex("ProductId");
 
@@ -203,6 +224,10 @@ namespace Ciber.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("Ciber.Entity.PackOrder", null)
+                        .WithMany("Orders")
+                        .HasForeignKey("PackOrderId");
+
                     b.HasOne("Ciber.Model.Product", "Product")
                         .WithMany("Orders")
                         .HasForeignKey("ProductId")
@@ -217,7 +242,7 @@ namespace Ciber.Migrations
             modelBuilder.Entity("Ciber.Model.Product", b =>
                 {
                     b.HasOne("Ciber.Model.Category", "Category")
-                        .WithMany("Products")
+                        .WithMany()
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -225,9 +250,9 @@ namespace Ciber.Migrations
                     b.Navigation("Category");
                 });
 
-            modelBuilder.Entity("Ciber.Model.Category", b =>
+            modelBuilder.Entity("Ciber.Entity.PackOrder", b =>
                 {
-                    b.Navigation("Products");
+                    b.Navigation("Orders");
                 });
 
             modelBuilder.Entity("Ciber.Model.Customer", b =>

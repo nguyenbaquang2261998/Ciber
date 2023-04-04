@@ -1,0 +1,17 @@
+﻿@{ ViewData["Title"] = "CheckingOrderByClient";
+    Layout = "~/Views/Shared/_ClientLayout.cshtml"; }
+@{ string orderCode = null; }
+<div class="section-banner container" style="margin-top:15px;">
+    <img class="hdt" src="~/images/head-banner.jpg" alt="">
+    <img class="hmb" src="~/images/banner-mb.jpg" alt="">
+</div>
+<div class="text-center" style="margin-bottom:20px">
+    <h2 style="font-weight:bold; font-size:20px">Theo dõi đơn hàng</h2>
+    @using (Html.BeginForm("CheckingOrderByClient", "Cart", FormMethod.Get, new { @class = "searchform" })) {
+        <input style="height:35px; width:300px;" asp-for="@orderCode" type="text" placeholder="Nhập mã đơn hàng để tìm kiếm">
+        <button type="submit" class="btn btn-default">
+            <i class="fa fa-arrow-circle-o-right"></i>
+        </button>
+    }
+</div>
+

@@ -23,6 +23,30 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[E:/Webshop 2023/Ciber/Ciber/Views/Cart/404.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydFw0MDQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Webshop 2023/Ciber/Ciber/Views/Cart/CheckingOrderByClient.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydFxDaGVja2luZ09yZGVyQnlDbGllbnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Webshop 2023/Ciber/Ciber/Views/Cart/Checkout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydFxDaGVja291dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Webshop 2023/Ciber/Ciber/Views/Cart/Complete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydFxDb21wbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Webshop 2023/Ciber/Ciber/Views/Cart/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Webshop 2023/Ciber/Ciber/Views/Cart/TrackingSucces.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydFxUcmFja2luZ1N1Y2Nlcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [E:/Webshop 2023/Ciber/Ciber/Views/Categories/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmllc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

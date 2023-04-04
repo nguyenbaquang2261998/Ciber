@@ -16,5 +16,6 @@ namespace Ciber.Model
         public DbSet<Product> Products { get; set; }
         public DbSet<Contact> Contacts { get; set; }
         public DbSet<News> News { get; set; }
+        public DbSet<PackOrder> PackOrders { get; set; }
     } 
 }
