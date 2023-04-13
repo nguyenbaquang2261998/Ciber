@@ -10,32 +10,32 @@
             <h2>Manage Orders</h2>
         </div>
         <div class="card-body">
-            @using (Html.BeginForm("Index", "Orders", FormMethod.Get))
+            @*@using (Html.BeginForm("Index", "Orders", FormMethod.Get))
             {
                 <p>
                     Find by name: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
                     <input type="submit" value="Search" />
                 </p>
-            }
+            }*@
             <table class="table table-data2">
                 <thead>
                     <tr>
-                        <th class="text-center" style="text-decoration:none">@Html.ActionLink("Product Name", "Index", new { sortOrder = ViewBag.NameSortParm, currentFilter=ViewBag.CurrentFilter })</th>
-                        <th class="text-center">Category Name</th>
-                        <th class="text-center">Customer Name</th>
-                        <th class="text-center">Order Date</th>
-                        <th class="text-center">Amount</th>
+                        <th class="text-center">OrderID</th>
+                        <th class="text-center">Name</th>
+                        <th class="text-center">Phone</th>
+                        <th class="text-center">Address</th>
+                        <th class="text-center">Status</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach (var item in Model)
                     {
                         <tr class="tr-shadow">
-                            <td class="text-center">@item.Product.Name</td>
-                            <td class="text-center">@item.Product.Category.Name</td>
-                            <td class="text-center">@item.Customer.Name</td>
-                            <td class="text-center">@item.OrderDate.ToString("dd-MMM-yyyy")</td>
-                            <td class="text-center">@item.Amount</td>
+                            <td class="text-center">@item.Id</td>
+                            <td class="text-center">@item.CustomerName</td>
+                            <td class="text-center">@item.CustomerPhone</td>
+                            <td class="text-center">@item.Address</td>
+                            <td class="text-center">@item.Status.ToString()</td>
                         </tr>
                         <tr class="spacer"></tr>
                     }

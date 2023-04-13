@@ -26,6 +26,11 @@ namespace Ciber.Controllers
             return View();
         }
 
+        public IActionResult Recruire()
+        {
+            return View();
+        }
+
         public IActionResult Product(int id)
         {
             var products = _context.Products.Where(x => x.CategoryId == id)

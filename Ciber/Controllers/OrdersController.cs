@@ -21,7 +21,7 @@ namespace Ciber.Controllers
         public ViewResult Index(string sortOrder, string currentFilter, string searchString, int? page)
         {
             var orders = _context.PackOrders
-               .Include(x => x.Orders);
+               .Include(x => x.Orders).ThenInclude(x => x.Product);
 
             ViewBag.CurrentSort = sortOrder;
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "prod_desc" : "";
@@ -47,8 +47,7 @@ namespace Ciber.Controllers
             switch (sortOrder)
             {
                 case "prod_desc":
-                    orders = orders.OrderBy(s => s.Id)
-                        .Include(x => x.Orders);
+                    orders = orders;
                     break;
             }
 

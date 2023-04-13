@@ -1686,3 +1686,15 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 
 /*# sourceMappingURL=style.css.map */
+.session-cart {
+    padding: 90px;
+    border: solid 1px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+
+    .session-cart .heading {
+        font-size: 25px;
+        font-weight: 500;
+        color: #5cb85c;
+    }

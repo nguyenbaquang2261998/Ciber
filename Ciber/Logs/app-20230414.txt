@@ -1,0 +1,38 @@
+2023-04-14T00:04:53.2917041+07:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2023-04-14T00:04:53.3077964+07:00  [INF] Hosting environment: "Development" (c3307c92)
+2023-04-14T00:04:53.3415355+07:00  [INF] Content root path: "E:\Webshop 2023\Ciber\Ciber" (b5d60022)
+2023-04-14T00:05:12.5034343+07:00 8000000c-0003-ed00-b63f-84710c7967bb [INF] Entity Framework Core "6.0.15" initialized '"CiberDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.15"' with options: "None" (d2805559)
+2023-04-14T00:05:13.4026811+07:00 8000000c-0003-ed00-b63f-84710c7967bb [INF] Executed DbCommand ("53"ms) [Parameters=["@__id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [p].[Id], [p].[CategoryId], [p].[Description], [p].[Image], [p].[Name], [p].[Price], [p].[Quantity], [c].[Id], [c].[Description], [c].[Name]
+FROM [Products] AS [p]
+INNER JOIN [Categories] AS [c] ON [p].[CategoryId] = [c].[Id]
+WHERE [p].[CategoryId] = @__id_0" (0723d8ff)
+2023-04-14T00:05:33.7000883+07:00 80000068-0004-f200-b63f-84710c7967bb [INF] Entity Framework Core "6.0.15" initialized '"CiberDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.15"' with options: "None" (d2805559)
+2023-04-14T00:05:33.7283434+07:00 80000068-0004-f200-b63f-84710c7967bb [INF] Executed DbCommand ("14"ms) [Parameters=["@__id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [p].[Id], [p].[CategoryId], [p].[Description], [p].[Image], [p].[Name], [p].[Price], [p].[Quantity]
+FROM [Products] AS [p]
+WHERE [p].[Id] = @__id_0" (0723d8ff)
+2023-04-14T00:07:30.9010995+07:00 80000077-0003-f600-b63f-84710c7967bb [INF] Entity Framework Core "6.0.15" initialized '"CiberDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.15"' with options: "None" (d2805559)
+2023-04-14T00:07:30.9128654+07:00 80000077-0003-f600-b63f-84710c7967bb [INF] Executed DbCommand ("3"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [p].[Id], [p].[CategoryId], [p].[Description], [p].[Image], [p].[Name], [p].[Price], [p].[Quantity], [c].[Id], [c].[Description], [c].[Name]
+FROM [Products] AS [p]
+INNER JOIN [Categories] AS [c] ON [p].[CategoryId] = [c].[Id]
+ORDER BY [p].[Id] DESC" (0723d8ff)
+2023-04-14T00:07:33.0228323+07:00 80000020-0004-f000-b63f-84710c7967bb [INF] Entity Framework Core "6.0.15" initialized '"CiberDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.15"' with options: "None" (d2805559)
+2023-04-14T00:07:33.0287550+07:00 80000020-0004-f000-b63f-84710c7967bb [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c].[Id], [c].[Description], [c].[Name]
+FROM [Categories] AS [c]" (0723d8ff)
+2023-04-14T00:07:46.9503049+07:00 80000076-0003-f900-b63f-84710c7967bb [INF] Entity Framework Core "6.0.15" initialized '"CiberDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.15"' with options: "None" (d2805559)
+2023-04-14T00:07:46.9565062+07:00 80000076-0003-f900-b63f-84710c7967bb [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [p].[Id], [p].[CategoryId], [p].[Description], [p].[Image], [p].[Name], [p].[Price], [p].[Quantity], [c].[Id], [c].[Description], [c].[Name]
+FROM [Products] AS [p]
+INNER JOIN [Categories] AS [c] ON [p].[CategoryId] = [c].[Id]
+ORDER BY [p].[Id] DESC" (0723d8ff)
+2023-04-14T00:08:00.6428664+07:00 800000ba-0004-f900-b63f-84710c7967bb [INF] Entity Framework Core "6.0.15" initialized '"CiberDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.15"' with options: "None" (d2805559)
+2023-04-14T00:08:00.6451001+07:00 800000ba-0004-f900-b63f-84710c7967bb [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c].[Id], [c].[Description], [c].[Name]
+FROM [Categories] AS [c]" (0723d8ff)
+2023-04-14T00:08:00.6485712+07:00 800000ba-0004-f900-b63f-84710c7967bb [INF] Executed DbCommand ("1"ms) [Parameters=["@__id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [p].[Id], [p].[CategoryId], [p].[Description], [p].[Image], [p].[Name], [p].[Price], [p].[Quantity]
+FROM [Products] AS [p]
+WHERE [p].[Id] = @__id_0" (0723d8ff)

@@ -28,7 +28,8 @@ namespace Ciber.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        public IActionResult Checkout()
+        [HttpGet]
+        public async Task<IActionResult>  Checkout()
         {
             var cart = HttpContext.Session.GetString("cart");//get key cart
             if (cart != null)
@@ -44,19 +45,24 @@ namespace Ciber.Controllers
                 if (dataCart.Count > 0)
                 {
                     ViewBag.carts = dataCart;
-                    return View(dataCart);
+                    return View();
                 }
             }
             return RedirectToAction(nameof(Index));
         }
 
         [HttpPost]
-        public async Task<IActionResult> Checkout(PackOrder packOrder)
+        public async Task<IActionResult> Payment(PackOrder packOrder)
         {
             var cart = HttpContext.Session.GetString("cart");//get key cart
             List<Order> dataCart = JsonConvert.DeserializeObject<List<Order>>(cart);
 
             packOrder.Orders = dataCart;
+            foreach (var item in packOrder.Orders)
+            {
+                item.Product = null;
+                item.CustomerId = 1;
+            }
 
             _context.PackOrders.Add(packOrder);
             await _context.SaveChangesAsync();

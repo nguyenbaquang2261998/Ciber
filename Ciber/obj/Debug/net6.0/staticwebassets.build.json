@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "rny6SB4Wlja7fbU8ykT5L6WHjBxQ0Ri8UGANuei55aA=",
+  "Hash": "N1mGZm2KvlK0GbpoPxe/Lqa9jlKp6OaPj4YNye/g31A=",
   "Source": "Ciber",
   "BasePath": "_content/Ciber",
   "Mode": "Default",
@@ -15961,6 +15961,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\upload\\03022023.jpg"
+    },
+    {
+      "Identity": "E:\\Webshop 2023\\Ciber\\Ciber\\wwwroot\\upload\\product-1.jpg",
+      "SourceId": "Ciber",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\Webshop 2023\\Ciber\\Ciber\\wwwroot\\",
+      "BasePath": "_content/Ciber",
+      "RelativePath": "upload/product-1.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\upload\\product-1.jpg"
     }
   ]
 }
