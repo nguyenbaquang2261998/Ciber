@@ -1,0 +1,68 @@
+2023-04-15T00:20:36.5098273+07:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2023-04-15T00:20:36.5179314+07:00  [INF] Hosting environment: "Development" (c3307c92)
+2023-04-15T00:20:36.5534663+07:00  [INF] Content root path: "E:\Webshop 2023\Ciber\Ciber" (b5d60022)
+2023-04-15T00:20:54.4559487+07:00 80000019-0002-fc00-b63f-84710c7967bb [INF] Entity Framework Core "6.0.15" initialized '"CiberDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.15"' with options: "None" (d2805559)
+2023-04-15T00:20:56.9851512+07:00 80000019-0002-fc00-b63f-84710c7967bb [INF] Executed DbCommand ("498"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [p].[Id], [p].[CategoryId], [p].[Description], [p].[Image], [p].[Name], [p].[Price], [p].[Quantity], [c].[Id], [c].[Description], [c].[Name]
+FROM [Products] AS [p]
+INNER JOIN [Categories] AS [c] ON [p].[CategoryId] = [c].[Id]
+ORDER BY [p].[Id] DESC" (0723d8ff)
+2023-04-15T00:20:59.0732300+07:00 8000002c-0003-eb00-b63f-84710c7967bb [INF] Entity Framework Core "6.0.15" initialized '"CiberDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.15"' with options: "None" (d2805559)
+2023-04-15T00:20:59.1791323+07:00 8000002c-0003-eb00-b63f-84710c7967bb [INF] Executed DbCommand ("10"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [p].[Id], [p].[CategoryId], [p].[Description], [p].[Image], [p].[Name], [p].[Price], [p].[Quantity], [c].[Id], [c].[Description], [c].[Name]
+FROM [Products] AS [p]
+INNER JOIN [Categories] AS [c] ON [p].[CategoryId] = [c].[Id]
+ORDER BY [p].[Id] DESC" (0723d8ff)
+2023-04-15T00:21:04.9138993+07:00 80000074-0001-f600-b63f-84710c7967bb [INF] Entity Framework Core "6.0.15" initialized '"CiberDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.15"' with options: "None" (d2805559)
+2023-04-15T00:21:04.9797637+07:00 80000074-0001-f600-b63f-84710c7967bb [INF] Executed DbCommand ("58"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [n].[Id], [n].[Author], [n].[Content], [n].[CreatedDate], [n].[Description], [n].[Image], [n].[Title]
+FROM [News] AS [n]" (0723d8ff)
+2023-04-15T00:22:57.5126444+07:00 8000005d-0000-f600-b63f-84710c7967bb [INF] Entity Framework Core "6.0.15" initialized '"CiberDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.15"' with options: "None" (d2805559)
+2023-04-15T00:22:57.8354018+07:00 8000005d-0000-f600-b63f-84710c7967bb [INF] Executed DbCommand ("111"ms) [Parameters=["@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (DbType = DateTime2), @p3='?' (Size = 4000), @p4='?' (Size = 4000), @p5='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SET NOCOUNT ON;
+INSERT INTO [News] ([Author], [Content], [CreatedDate], [Description], [Image], [Title])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT [Id]
+FROM [News]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();" (0723d8ff)
+2023-04-15T00:22:57.9447227+07:00 80000018-0003-ec00-b63f-84710c7967bb [INF] Entity Framework Core "6.0.15" initialized '"CiberDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.15"' with options: "None" (d2805559)
+2023-04-15T00:22:57.9473861+07:00 80000018-0003-ec00-b63f-84710c7967bb [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [n].[Id], [n].[Author], [n].[Content], [n].[CreatedDate], [n].[Description], [n].[Image], [n].[Title]
+FROM [News] AS [n]" (0723d8ff)
+2023-04-15T00:23:29.4278842+07:00 80000045-0002-fe00-b63f-84710c7967bb [INF] Entity Framework Core "6.0.15" initialized '"CiberDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.15"' with options: "None" (d2805559)
+2023-04-15T00:23:29.4574579+07:00 80000045-0002-fe00-b63f-84710c7967bb [INF] Executed DbCommand ("5"ms) [Parameters=["@__id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [n].[Id], [n].[Author], [n].[Content], [n].[CreatedDate], [n].[Description], [n].[Image], [n].[Title]
+FROM [News] AS [n]
+WHERE [n].[Id] = @__id_0" (0723d8ff)
+2023-04-15T00:24:07.6572132+07:00 80000022-0003-ec00-b63f-84710c7967bb [INF] Entity Framework Core "6.0.15" initialized '"CiberDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.15"' with options: "None" (d2805559)
+2023-04-15T00:24:07.6607849+07:00 80000022-0003-ec00-b63f-84710c7967bb [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [n].[Id], [n].[Author], [n].[Content], [n].[CreatedDate], [n].[Description], [n].[Image], [n].[Title]
+FROM [News] AS [n]" (0723d8ff)
+2023-04-15T00:24:10.7407054+07:00 800000fc-0000-fe00-b63f-84710c7967bb [INF] Entity Framework Core "6.0.15" initialized '"CiberDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.15"' with options: "None" (d2805559)
+2023-04-15T00:24:10.7437501+07:00 800000fc-0000-fe00-b63f-84710c7967bb [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [n].[Id], [n].[Author], [n].[Content], [n].[CreatedDate], [n].[Description], [n].[Image], [n].[Title]
+FROM [News] AS [n]" (0723d8ff)
+2023-04-15T00:36:14.3874207+07:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2023-04-15T00:36:14.3960890+07:00  [INF] Hosting environment: "Development" (c3307c92)
+2023-04-15T00:36:14.3975124+07:00  [INF] Content root path: "E:\Webshop 2023\Ciber\Ciber" (b5d60022)
+2023-04-15T00:36:24.1275014+07:00 80000032-0003-ed00-b63f-84710c7967bb [INF] Entity Framework Core "6.0.15" initialized '"CiberDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.15"' with options: "None" (d2805559)
+2023-04-15T00:36:24.7877862+07:00 80000032-0003-ed00-b63f-84710c7967bb [INF] Executed DbCommand ("29"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [n].[Id], [n].[Author], [n].[Content], [n].[CreatedDate], [n].[Description], [n].[Image], [n].[Title]
+FROM [News] AS [n]" (0723d8ff)
+2023-04-15T00:36:29.6350757+07:00 800000d2-0005-f100-b63f-84710c7967bb [INF] Entity Framework Core "6.0.15" initialized '"CiberDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.15"' with options: "None" (d2805559)
+2023-04-15T00:36:29.8435389+07:00 800000d2-0005-f100-b63f-84710c7967bb [INF] Executed DbCommand ("32"ms) [Parameters=["@__id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [n].[Id], [n].[Author], [n].[Content], [n].[CreatedDate], [n].[Description], [n].[Image], [n].[Title]
+FROM [News] AS [n]
+WHERE [n].[Id] = @__id_0" (0723d8ff)
+2023-04-15T00:37:37.8423283+07:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2023-04-15T00:37:37.8512090+07:00  [INF] Hosting environment: "Development" (c3307c92)
+2023-04-15T00:37:37.8532598+07:00  [INF] Content root path: "E:\Webshop 2023\Ciber\Ciber" (b5d60022)
+2023-04-15T00:38:22.7478845+07:00 80000006-0002-f300-b63f-84710c7967bb [INF] Entity Framework Core "6.0.15" initialized '"CiberDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.15"' with options: "None" (d2805559)
+2023-04-15T00:38:23.4354351+07:00 80000006-0002-f300-b63f-84710c7967bb [INF] Executed DbCommand ("33"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [n].[Id], [n].[Author], [n].[Content], [n].[CreatedDate], [n].[Description], [n].[Image], [n].[Title]
+FROM [News] AS [n]" (0723d8ff)
+2023-04-15T00:38:25.8284997+07:00 80000010-0002-e900-b63f-84710c7967bb [INF] Entity Framework Core "6.0.15" initialized '"CiberDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.15"' with options: "None" (d2805559)
+2023-04-15T00:38:26.0512361+07:00 80000010-0002-e900-b63f-84710c7967bb [INF] Executed DbCommand ("38"ms) [Parameters=["@__id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [n].[Id], [n].[Author], [n].[Content], [n].[CreatedDate], [n].[Description], [n].[Image], [n].[Title]
+FROM [News] AS [n]
+WHERE [n].[Id] = @__id_0" (0723d8ff)

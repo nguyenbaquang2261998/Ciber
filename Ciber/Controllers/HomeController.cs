@@ -31,6 +31,18 @@ namespace Ciber.Controllers
             return View();
         }
 
+        public IActionResult News()
+        {
+            var news = _context.News.ToList();
+            return View(news);
+        }
+
+        public IActionResult NewsDetail(int id)
+        {
+            var news = _context.News.FirstOrDefault(x => x.Id == id);
+            return View(news);
+        }
+
         public IActionResult Product(int id)
         {
             var products = _context.Products.Where(x => x.CategoryId == id)
