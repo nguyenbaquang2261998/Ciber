@@ -116,6 +116,7 @@ namespace Ciber.Controllers
         {
             var product = await _context.Products.FindAsync(id);
             var result = _context.Products.Remove(product);
+            _context.SaveChanges();
             return Json(new { status = 1, message = "Xóa thành công" });
         }
     }

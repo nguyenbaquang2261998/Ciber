@@ -49,5 +49,17 @@ namespace Ciber.Controllers
                 .Include(x => x.Category).ToList();
             return View(products);
         }
+
+        public IActionResult Tracking()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Tracking(int id)
+        {
+            var packOrder = _context.PackOrders.FirstOrDefault(x => x.Id == id);
+            return View(packOrder);
+        }
     }
 }

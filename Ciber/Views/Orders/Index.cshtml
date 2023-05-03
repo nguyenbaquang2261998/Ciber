@@ -25,6 +25,7 @@
                         <th class="text-center">Phone</th>
                         <th class="text-center">Address</th>
                         <th class="text-center">Status</th>
+                        <th class="text-center">Thao tác</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -36,6 +37,13 @@
                             <td class="text-center">@item.CustomerPhone</td>
                             <td class="text-center">@item.Address</td>
                             <td class="text-center">@item.Status.ToString()</td>
+                            <td>
+                                <div class="table-data-feature">
+                                    <span class="item" data-toggle="tooltip" data-placement="top" title="Cập nhật">
+                                        <a href="/orders/update/@item.Id"><i class="zmdi zmdi-edit"></i></a>
+                                    </span>
+                                </div>
+                            </td>
                         </tr>
                         <tr class="spacer"></tr>
                     }

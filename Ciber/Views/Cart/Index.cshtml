@@ -21,12 +21,13 @@
                                 <h4>@item.Product.Name</h4>
                             </td>
                             <td class="cart-price">
+                                 <input id="idp" class="number-item" type="number" hidden value="@item.Product.Id">
                                 <p>@string.Format("{0:##,#}", item.Product.Price) đ</p>
                             </td>
                             <td class="cart-quantity">
                                 <div class="choosenumber">
                                     <a class="plus" href="/Cart/AddCart/@item.Product.Id"> <i class="fa fa-plus"></i> </a>
-                                    <input class="number-item" type="text" name="quantity" value="@item.Amount"
+                                    <input id="update-cart" class="number-item" type="text" name="quantity" value="@item.Amount"
                                             autocomplete="off" size="2">
                                     <a class="minus" href="/Cart/DeleteCart/@item.Product.Id"> <i class="fa fa-minus"></i> </a>
                                 </div>
@@ -43,20 +44,25 @@
             </table>
         </div>
         <div class="payment">
-            <a class="btn btn-success check-out" href="/Cart/Checkout">Tiếp tục thanh toán</a>
+            <a class="btn btn-success check-out" href="/Cart/Checkout">Thanh toán</a>
+            <a class="btn btn-primary check-out" href="/">Tiếp tục mua hàng</a>
         </div>
     </div>
 </div>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
 <script>
-    $(document).ready(function () {
-        $(".UpdateCart").click(function (event) {
-            event.preventDefault();
-            var quantity = $(".quantity_" + $(this).attr("data-id")).val();
+    var $el = $('#update-cart');
+    $el.change(function () {
+            debugger;
+            //var quantity = $(".quantity_" + $(this).attr("data-id")).val();
+            var quantity = document.getElementById("update-cart").value;
+            var idproduct = document.getElementById("idp").value;
             $.ajax({
                 type: "POST",
                 url:"@Url.Action("UpdateCart","Cart")",
                 data: {
-                    id: $(this).attr("data-id"),
+                    id: idproduct,
                     quantity:quantity
                 },
                 success: function (result) {
@@ -64,6 +70,5 @@
                 }
             });
         });
-    });
 </script>
 

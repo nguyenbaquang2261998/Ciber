@@ -1,0 +1,45 @@
+﻿@using Ciber.Entity
+@model PackOrder
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, AuthoringTagHelpers
+
+<div class="card">
+    <div class="card-body card-block">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input asp-for="Id" type="number" hidden class="form-control" />
+            <div class="form-group">
+                <label asp-for="Status" class="control-label">Trạng thái đơn hàng</label>
+                @Html.DropDownListFor(model => model.Status, ViewBag.Status as SelectList, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label asp-for="CustomerName" class="control-label">Tên khách hàng</label>
+                <input asp-for="CustomerName" type="text" class="form-control" />
+                <span asp-validation-for="CustomerName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CustomerPhone" class="control-label">Số điện thoại</label>
+                <input asp-for="CustomerPhone" type="text" class="form-control" />
+                <span asp-validation-for="CustomerPhone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Address" class="control-label">Địa chỉ giao hàng</label>
+                <input asp-for="Address" type="text" class="form-control" />
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+            <div class="info-order">
+                <b>Danh sách sản phẩm</b>
+
+                @foreach (var item in ViewBag.ListProducts)
+                {
+                    <p>ID sản phẩm: @item.ProductId</p>
+                    <p>Số lượng: @item.Amount</p>
+                    <p>__________________</p>
+                }
+            </div>
+            <button type="submit" value="Update" class="btn btn-primary btn-sm mt-5">
+                <i class="fas fa-subway"></i> Cập nhật đơn hàng
+            </button>
+        </form>
+    </div>
+</div>

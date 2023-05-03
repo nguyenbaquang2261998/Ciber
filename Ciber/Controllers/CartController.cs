@@ -60,8 +60,9 @@ namespace Ciber.Controllers
             packOrder.Orders = dataCart;
             foreach (var item in packOrder.Orders)
             {
-                item.Product = null;
+                item.ProductId = item.Product.Id;
                 item.CustomerId = 1;
+                item.Product = null;
             }
 
             _context.PackOrders.Add(packOrder);

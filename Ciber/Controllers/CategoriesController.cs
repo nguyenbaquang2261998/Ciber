@@ -96,6 +96,7 @@ namespace Ciber.Controllers
         {
             var category = await _context.Categories.FindAsync(id);
             var result = _context.Categories.Remove(category);
+            _context.SaveChanges();
             return Json(new { status = 1, message = "Xóa thành công" });
         }
 

@@ -103,6 +103,7 @@ namespace Ciber.Controllers
         {
             var news = await _context.News.FindAsync(id);
             var result = _context.News.Remove(news);
+            _context.SaveChanges();
             return Json(new { status = 1, message = "Xóa thành công" });
         }
     }

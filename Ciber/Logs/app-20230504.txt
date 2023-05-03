@@ -1,0 +1,61 @@
+2023-05-04T00:30:15.5568414+07:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2023-05-04T00:30:15.5644759+07:00  [INF] Hosting environment: "Development" (c3307c92)
+2023-05-04T00:30:15.5658760+07:00  [INF] Content root path: "E:\Webshop 2023\Ciber\Ciber" (b5d60022)
+2023-05-04T00:30:21.9786461+07:00 800000be-0004-f300-b63f-84710c7967bb [INF] Entity Framework Core "6.0.15" initialized '"CiberDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.15"' with options: "None" (d2805559)
+2023-05-04T00:30:23.3412297+07:00 800000be-0004-f300-b63f-84710c7967bb [INF] Executed DbCommand ("51"ms) [Parameters=["@__customer_UserName_0='?' (Size = 4000), @__customer_Password_1='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [c].[Id], [c].[Address], [c].[KeepLoggedIn], [c].[Name], [c].[Password], [c].[UserName]
+FROM [Customers] AS [c]
+WHERE ([c].[UserName] = @__customer_UserName_0) AND ([c].[Password] = @__customer_Password_1)" (0723d8ff)
+2023-05-04T00:30:33.9321376+07:00 800000a6-0004-f100-b63f-84710c7967bb [INF] Entity Framework Core "6.0.15" initialized '"CiberDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.15"' with options: "None" (d2805559)
+2023-05-04T00:30:33.9808351+07:00 800000a6-0004-f100-b63f-84710c7967bb [INF] Executed DbCommand ("5"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [PackOrders] AS [p]" (0723d8ff)
+2023-05-04T00:30:34.0253884+07:00 800000a6-0004-f100-b63f-84710c7967bb [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased. (5b3e5b60)
+2023-05-04T00:30:34.3609784+07:00 800000a6-0004-f100-b63f-84710c7967bb [INF] Executed DbCommand ("88"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Address], [t].[CustomerName], [t].[CustomerPhone], [t].[Status], [t0].[Id], [t0].[Amount], [t0].[CustomerId], [t0].[OrderDate], [t0].[PackOrderId], [t0].[ProductId], [t0].[Id0], [t0].[CategoryId], [t0].[Description], [t0].[Image], [t0].[Name], [t0].[Price], [t0].[Quantity]
+FROM (
+    SELECT TOP(@__p_0) [p].[Id], [p].[Address], [p].[CustomerName], [p].[CustomerPhone], [p].[Status]
+    FROM [PackOrders] AS [p]
+) AS [t]
+LEFT JOIN (
+    SELECT [o].[Id], [o].[Amount], [o].[CustomerId], [o].[OrderDate], [o].[PackOrderId], [o].[ProductId], [p0].[Id] AS [Id0], [p0].[CategoryId], [p0].[Description], [p0].[Image], [p0].[Name], [p0].[Price], [p0].[Quantity]
+    FROM [Orders] AS [o]
+    INNER JOIN [Products] AS [p0] ON [o].[ProductId] = [p0].[Id]
+) AS [t0] ON [t].[Id] = [t0].[PackOrderId]
+ORDER BY [t].[Id], [t0].[Id]" (0723d8ff)
+2023-05-04T00:30:56.8910307+07:00 800000b8-0004-f100-b63f-84710c7967bb [INF] Entity Framework Core "6.0.15" initialized '"CiberDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.15"' with options: "None" (d2805559)
+2023-05-04T00:30:56.9131674+07:00 800000b8-0004-f100-b63f-84710c7967bb [INF] Executed DbCommand ("17"ms) [Parameters=["@__id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [p].[Id], [p].[Address], [p].[CustomerName], [p].[CustomerPhone], [p].[Status]
+FROM [PackOrders] AS [p]
+WHERE [p].[Id] = @__id_0" (0723d8ff)
+2023-05-04T00:35:34.3053169+07:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2023-05-04T00:35:34.3128352+07:00  [INF] Hosting environment: "Development" (c3307c92)
+2023-05-04T00:35:34.3142724+07:00  [INF] Content root path: "E:\Webshop 2023\Ciber\Ciber" (b5d60022)
+2023-05-04T00:36:05.5814121+07:00 80000103-0005-f100-b63f-84710c7967bb [INF] Entity Framework Core "6.0.15" initialized '"CiberDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.15"' with options: "None" (d2805559)
+2023-05-04T00:36:06.4113847+07:00 80000103-0005-f100-b63f-84710c7967bb [INF] Executed DbCommand ("51"ms) [Parameters=["@__id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [p].[Id], [p].[Address], [p].[CustomerName], [p].[CustomerPhone], [p].[Status]
+FROM [PackOrders] AS [p]
+WHERE [p].[Id] = @__id_0" (0723d8ff)
+2023-05-04T00:36:11.7376838+07:00 80000107-0005-f100-b63f-84710c7967bb [INF] Entity Framework Core "6.0.15" initialized '"CiberDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.15"' with options: "None" (d2805559)
+2023-05-04T00:36:11.7460349+07:00 80000107-0005-f100-b63f-84710c7967bb [INF] Executed DbCommand ("2"ms) [Parameters=["@__id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [p].[Id], [p].[Address], [p].[CustomerName], [p].[CustomerPhone], [p].[Status]
+FROM [PackOrders] AS [p]
+WHERE [p].[Id] = @__id_0" (0723d8ff)
+2023-05-04T00:36:35.6307554+07:00 80000126-0004-ff00-b63f-84710c7967bb [INF] Entity Framework Core "6.0.15" initialized '"CiberDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.15"' with options: "None" (d2805559)
+2023-05-04T00:36:35.6346339+07:00 80000126-0004-ff00-b63f-84710c7967bb [INF] Executed DbCommand ("1"ms) [Parameters=["@__id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [p].[Id], [p].[Address], [p].[CustomerName], [p].[CustomerPhone], [p].[Status]
+FROM [PackOrders] AS [p]
+WHERE [p].[Id] = @__id_0" (0723d8ff)
+2023-05-04T00:38:25.2777806+07:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2023-05-04T00:38:25.2849226+07:00  [INF] Hosting environment: "Development" (c3307c92)
+2023-05-04T00:38:25.2868724+07:00  [INF] Content root path: "E:\Webshop 2023\Ciber\Ciber" (b5d60022)
+2023-05-04T00:38:34.6084320+07:00 800001c2-0003-fd00-b63f-84710c7967bb [INF] Entity Framework Core "6.0.15" initialized '"CiberDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.15"' with options: "None" (d2805559)
+2023-05-04T00:38:35.4217542+07:00 800001c2-0003-fd00-b63f-84710c7967bb [INF] Executed DbCommand ("53"ms) [Parameters=["@__id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [p].[Id], [p].[Address], [p].[CustomerName], [p].[CustomerPhone], [p].[Status]
+FROM [PackOrders] AS [p]
+WHERE [p].[Id] = @__id_0" (0723d8ff)
+2023-05-04T00:38:41.3497337+07:00 80000117-0005-f100-b63f-84710c7967bb [INF] Entity Framework Core "6.0.15" initialized '"CiberDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.15"' with options: "None" (d2805559)
+2023-05-04T00:38:41.3750121+07:00 80000117-0005-f100-b63f-84710c7967bb [INF] Executed DbCommand ("18"ms) [Parameters=["@__id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [p].[Id], [p].[Address], [p].[CustomerName], [p].[CustomerPhone], [p].[Status]
+FROM [PackOrders] AS [p]
+WHERE [p].[Id] = @__id_0" (0723d8ff)

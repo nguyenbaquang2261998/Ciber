@@ -1,0 +1,57 @@
+﻿@model Ciber.Entity.PackOrder
+@{
+    ViewData["Title"] = "Kiểm tra tình trạng đơn hàng";
+    Layout = "~/Views/Shared/_ClientLayout.cshtml";
+}
+<header id="fh5co-header" class="fh5co-cover fh5co-cover-sm" role="banner" style="background-image:url(/frontend/images/img_bg_1.jpg);">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 text-center">
+                <div class="display-t">
+                    <div class="display-tc animate-box" data-animate-effect="fadeIn">
+                        <h1>KIỂM TRA TÌNH TRẠNG ĐƠN HÀNG</h1>
+                        <h2>Trang chủ / Đơn hàng</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<div id="fh5co-contact">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 animate-box" style="margin-left: 33%;">
+                <h3>Nhập mã đơn hàng</h3>
+                <form action="Tracking" method="post">
+                    <div class="row form-group">
+                        <div class="col-md-6">
+                            <input type="text" name="id" id="fname" class="form-control" placeholder="Mã đơn hàng">
+                        </div>
+                        <button type="submit" class="btn btn-success">Tìm kiếm</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@if (Model != null && Model.Id > 0)
+{
+    <div class="col-md-5 col-md-push-1 animate-box" style="margin-left: 33%;">
+        <div class="fh5co-contact-info">
+            <h3>THÔNG TIN ĐƠN HÀNG</h3>
+            <ul>
+                <li class="url">Khách hàng: @Model.CustomerName</li>
+                <li class="phone">SĐT: @Model.CustomerPhone</li>
+                <li class="address">Địa chỉ: @Model.Address</li>
+                <li style="color:green;">Trạng thái: @Model.Status.ToString()</li>
+            </ul>
+        </div>
+    </div>
+}
+<style>
+    .form-control{
+            height: 45px!important;
+    }
+</style>
+

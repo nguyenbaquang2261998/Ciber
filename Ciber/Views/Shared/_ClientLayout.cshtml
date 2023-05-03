@@ -1,4 +1,8 @@
-﻿<!DOCTYPE HTML>
+﻿@using Ciber.Model
+@using Newtonsoft.Json
+
+
+<!DOCTYPE HTML>
 <html>
 <head>
     <meta charset="utf-8">
@@ -89,6 +93,7 @@
                             </li>
                             <li><a href="/home/news">Tin tức</a></li>
                             <li><a href="/home/contact">Liên hệ</a></li>
+                            <li><a href="/home/tracking">Đơn hàng</a></li>
                         </ul>
                     </div>
                     <div class="col-md-3 col-xs-4 text-right hidden-xs menu-2">
@@ -101,7 +106,29 @@
                                     </span>
                                 </div>
                             </li>
-                            <li class="shopping-cart"><a href="#" class="cart"><span><small>0</small><i class="icon-shopping-cart"></i></span></a></li>
+
+                            @{
+                                var data = Context.Session.GetString("cart");
+                                int coutCart = 0;
+                                if (data == null) {
+                                    coutCart = 0;
+                                }
+                                else {
+                                    var data2 = Context.Session.GetString("cart");
+                                     List<Order> dataCart = JsonConvert.DeserializeObject<List<Order>>(data2);
+                                    foreach (var item in dataCart) {
+                                        coutCart += item.Amount;
+                                    }
+                                }
+                            }
+                            @if (coutCart > 0)
+                            {
+                                <li class="shopping-cart"><a href="/Cart/Index" class="cart"><span><small>@coutCart</small><i class="icon-shopping-cart"></i></span></a></li>
+                            }
+                            else
+                            {
+                                <li class="shopping-cart"><a href="#" class="cart"><span><small>0</small><i class="icon-shopping-cart"></i></span></a></li>
+                            }
                         </ul>
                     </div>
                 </div>

@@ -1,4 +1,6 @@
-﻿using Ciber.Model;
+﻿using Ciber.DTO;
+using Ciber.Entity;
+using Ciber.Model;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -94,6 +96,71 @@ namespace Ciber.Controllers
                 {
                     _logger.LogError($"Error: Can't create new order, Product quantity is not enough");
                     return View("Error", "Error: Can't create new order, Product quantity is not enough");
+                }
+            }
+            return View();
+        }
+
+        public IActionResult Update(int id)
+        {
+            //Process = 0,
+            //Deliver = 1,
+            //Cancel = 2,
+            //Done = 3,
+            var listStatus = new List<OrderStatus>()
+            {
+                new OrderStatus
+                {
+                    Id = 0,
+                    Name = "Process"
+                },
+                new OrderStatus
+                {
+                    Id = 1,
+                    Name = "Deliver"
+                },
+                new OrderStatus
+                {
+                    Id = 2,
+                    Name = "Cancel"
+                },
+                new OrderStatus
+                {
+                    Id = 3,
+                    Name = "Done"
+                }
+            };
+            ViewBag.Status = new SelectList(listStatus.AsEnumerable(), "Id", "Name");
+            var order = _context.PackOrders.FirstOrDefault(x => x.Id == id);
+            var productsOrder = _context.Orders.Where(x => x.PackOrderId == order.Id).ToList();
+            
+            ViewBag.ListProducts = productsOrder;
+            return View(order);
+        }
+
+        [HttpPost]
+        public IActionResult Update(PackOrder order)
+        {
+            // check avaiable product befor create order
+            if (order != null)
+            {
+                try
+                {
+                    var existOrder = _context.PackOrders.FirstOrDefault(x => x.Id == order.Id);
+                    if (existOrder != null)
+                    {
+                        existOrder.Status = order.Status;
+                        existOrder.CustomerName = order.CustomerName;
+                        existOrder.CustomerPhone = order.CustomerPhone;
+                        existOrder.Address = order.Address;
+                    }
+                    _context.PackOrders.Update(existOrder);
+                    _context.SaveChanges();
+                    return Redirect("/orders");
+                }
+                catch (Exception ex)
+                {
+                    _logger.LogError($"Error: Can't update order, An error has occurred " + ex);
                 }
             }
             return View();
