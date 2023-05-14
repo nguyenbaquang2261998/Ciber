@@ -43,6 +43,7 @@
                         }
                     }
                     Tổng tiền thanh toán: <h3 style="color:#f30c28">@string.Format("{0:##,#}", totalPayment) đ</h3>
+                    <input asp-for="TotalMoney" type="number" class="form-control" hidden value="@totalPayment">
                 </div>
                 <div class="step-one">
                     <h2 class="heading" style="margin-bottom:0!important">Thông tin giao hàng</h2>

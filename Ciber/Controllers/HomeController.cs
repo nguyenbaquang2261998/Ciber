@@ -63,9 +63,22 @@ namespace Ciber.Controllers
         [HttpPost]
         public IActionResult Search(string keyword)
         {
-            var products = _context.Products.Where(x => x.Name.ToLower().Contains(keyword.ToLower()))
+            if (!string.IsNullOrEmpty(keyword))
+            {
+                var products = _context.Products.Where(x => x.Name.ToLower().Contains(keyword.ToLower()))
                 .Include(x => x.Category).ToList();
-            return View(products);
+                if (products == null || !products.Any())
+                {
+                    return Redirect("/Home/NotFoundProduct");
+                }
+                return View(products);
+            }
+            return Redirect("/Home/NotFoundProduct");
+        }
+
+        public IActionResult NotFoundProduct()
+        {
+            return View();
         }
 
         [HttpPost]

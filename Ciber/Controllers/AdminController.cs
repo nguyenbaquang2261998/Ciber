@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
+using Ciber.DTO;
+using Ciber.Model;
 
 namespace Ciber.Controllers
 {
@@ -12,15 +14,26 @@ namespace Ciber.Controllers
     public class AdminController : Controller
     {
         private readonly ILogger<AdminController> _logger;
+        private readonly CiberDbContext _context;
 
-        public AdminController(ILogger<AdminController> logger)
+        public AdminController(ILogger<AdminController> logger, CiberDbContext context)
         {
             _logger = logger;
+            _context = context;
         }
 
         public IActionResult Index()
         {
-            return View();
+            var res = new ReportDto();
+            var orders = _context.PackOrders.Where(x => x.OrderDate.Date == DateTime.Now.Date).ToList();
+            res.Orders = orders.Count();
+            var total = 0;
+            foreach (var item in orders)
+            {
+                total += item.TotalMoney;
+            }
+            res.TotalMoney = total;
+            return View(res);
         }
 
         public async Task<IActionResult> Logout()

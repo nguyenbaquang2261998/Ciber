@@ -1,4 +1,4 @@
-﻿
+﻿@model Ciber.DTO.ReportDto
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
@@ -7,7 +7,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="overview-wrap">
-                <h2 class="title-1">Chào mừng bạn đến với hệ thống</h2>
+                <h2 class="title-1">Thống kê đơn hàng ngày: @DateTime.Now.ToString("dd/MM/yyyy")</h2>
             </div>
         </div>
     </div>
@@ -17,11 +17,11 @@
                 <div class="overview__inner">
                     <div class="overview-box clearfix">
                         <div class="icon">
-                            <i class="zmdi zmdi-account-o"></i>
+                            <i class="zmdi zmdi-store"></i>
                         </div>
                         <div class="text">
-                            <h2>@ViewBag.TotalMember</h2>
-                            <span>thành viên</span>
+                            <h2>@Model.Orders</h2>
+                            <span>Đơn hàng</span>
                         </div>
                     </div>
                     <div class="overview-chart">
@@ -35,51 +35,15 @@
                 <div class="overview__inner">
                     <div class="overview-box clearfix">
                         <div class="icon">
-                            <i class="zmdi zmdi-file-text"></i>
+                            <i class="zmdi zmdi-money"></i>
                         </div>
                         <div class="text">
-                            <h2>@ViewBag.TotalArticle</h2>
-                            <span>bài viết</span>
+                            <h2>@string.Format("{0:##,#}", Model.TotalMoney) đ</h2>
+                            <span>Tổng tiền</span>
                         </div>
                     </div>
                     <div class="overview-chart">
                         <canvas id="widgetChart2"></canvas>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-6 col-lg-3">
-            <div class="overview-item overview-item--c3">
-                <div class="overview__inner">
-                    <div class="overview-box clearfix">
-                        <div class="icon">
-                            <i class="zmdi zmdi-folder"></i>
-                        </div>
-                        <div class="text">
-                            <h2> @ViewBag.TotalCategories</h2>
-                            <span>chủ đề</span>
-                        </div>
-                    </div>
-                    <div class="overview-chart">
-                        <canvas id="widgetChart3"></canvas>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-6 col-lg-3">
-            <div class="overview-item overview-item--c4">
-                <div class="overview__inner">
-                    <div class="overview-box clearfix">
-                        <div class="icon">
-                            <i class="zmdi zmdi-account-o"></i>
-                        </div>
-                        <div class="text">
-                            <h2>@ViewBag.TotalViews</h2>
-                            <span>lượt xem</span>
-                        </div>
-                    </div>
-                    <div class="overview-chart">
-                        <canvas id="widgetChart4"></canvas>
                     </div>
                 </div>
             </div>

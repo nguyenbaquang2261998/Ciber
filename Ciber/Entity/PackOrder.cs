@@ -13,6 +13,9 @@ namespace Ciber.Entity
         public string CustomerPhone { get; set; }
         public string Address { get; set; }
 
+        public int TotalMoney { get; set; }
+        public DateTime OrderDate { get; set; }
+
         public List<Order> Orders { get; set; }
 
         public OrderStatus Status { get; set; }

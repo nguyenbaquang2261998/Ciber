@@ -57,6 +57,8 @@ namespace Ciber.Controllers
             var cart = HttpContext.Session.GetString("cart");//get key cart
             List<Order> dataCart = JsonConvert.DeserializeObject<List<Order>>(cart);
 
+            packOrder.OrderDate = DateTime.Now.Date;
+
             packOrder.Orders = dataCart;
             foreach (var item in packOrder.Orders)
             {
