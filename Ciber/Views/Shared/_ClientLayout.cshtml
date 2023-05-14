@@ -98,15 +98,16 @@
                     </div>
                     <div class="col-md-3 col-xs-4 text-right hidden-xs menu-2">
                         <ul>
-                            <li class="search">
-                                <div class="input-group">
-                                    <input type="text" placeholder="Tìm kiếm..">
-                                    <span class="input-group-btn">
-                                        <button class="btn btn-primary" type="button"><i class="icon-search"></i></button>
-                                    </span>
-                                </div>
-                            </li>
-
+                            <form action="/Home/Search" method="post">
+                                <li class="search">
+                                    <div class="input-group">
+                                        <input type="text" name="keyword" placeholder="Tìm kiếm..">
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-primary" type="submit"><i class="icon-search"></i></button>
+                                        </span>
+                                    </div>
+                                </li>
+                            </form>
                             @{
                                 var data = Context.Session.GetString("cart");
                                 int coutCart = 0;

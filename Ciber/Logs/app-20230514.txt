@@ -1,0 +1,24 @@
+2023-05-14T13:04:42.9033967+07:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2023-05-14T13:04:42.9133524+07:00  [INF] Hosting environment: "Development" (c3307c92)
+2023-05-14T13:04:42.9150639+07:00  [INF] Content root path: "E:\Webshop 2023\Ciber\Ciber" (b5d60022)
+2023-05-14T13:19:57.5693544+07:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2023-05-14T13:19:57.5776503+07:00  [INF] Hosting environment: "Development" (c3307c92)
+2023-05-14T13:19:57.5790648+07:00  [INF] Content root path: "E:\Webshop 2023\Ciber\Ciber" (b5d60022)
+2023-05-14T13:21:51.5873855+07:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2023-05-14T13:21:51.5950217+07:00  [INF] Hosting environment: "Development" (c3307c92)
+2023-05-14T13:21:51.5966187+07:00  [INF] Content root path: "E:\Webshop 2023\Ciber\Ciber" (b5d60022)
+2023-05-14T13:24:31.1829642+07:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2023-05-14T13:24:31.2008454+07:00  [INF] Hosting environment: "Development" (c3307c92)
+2023-05-14T13:24:31.2032075+07:00  [INF] Content root path: "E:\Webshop 2023\Ciber\Ciber" (b5d60022)
+2023-05-14T13:24:35.7835140+07:00 8000008b-0002-f100-b63f-84710c7967bb [INF] Entity Framework Core "6.0.15" initialized '"CiberDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.15"' with options: "None" (d2805559)
+2023-05-14T13:24:37.4067481+07:00 8000008b-0002-f100-b63f-84710c7967bb [INF] Executed DbCommand ("80"ms) [Parameters=["@__ToLower_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [p].[Id], [p].[CategoryId], [p].[Description], [p].[Image], [p].[Name], [p].[Price], [p].[Quantity], [c].[Id], [c].[Description], [c].[Name]
+FROM [Products] AS [p]
+INNER JOIN [Categories] AS [c] ON [p].[CategoryId] = [c].[Id]
+WHERE (@__ToLower_0 LIKE N'') OR (CHARINDEX(@__ToLower_0, LOWER([p].[Name])) > 0)" (0723d8ff)
+2023-05-14T13:24:50.3132201+07:00 800003cd-0000-fe00-b63f-84710c7967bb [INF] Entity Framework Core "6.0.15" initialized '"CiberDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.15"' with options: "None" (d2805559)
+2023-05-14T13:24:50.3210911+07:00 800003cd-0000-fe00-b63f-84710c7967bb [INF] Executed DbCommand ("2"ms) [Parameters=["@__ToLower_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [p].[Id], [p].[CategoryId], [p].[Description], [p].[Image], [p].[Name], [p].[Price], [p].[Quantity], [c].[Id], [c].[Description], [c].[Name]
+FROM [Products] AS [p]
+INNER JOIN [Categories] AS [c] ON [p].[CategoryId] = [c].[Id]
+WHERE (@__ToLower_0 LIKE N'') OR (CHARINDEX(@__ToLower_0, LOWER([p].[Name])) > 0)" (0723d8ff)

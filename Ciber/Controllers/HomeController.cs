@@ -55,6 +55,19 @@ namespace Ciber.Controllers
             return View();
         }
 
+        public IActionResult Search()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Search(string keyword)
+        {
+            var products = _context.Products.Where(x => x.Name.ToLower().Contains(keyword.ToLower()))
+                .Include(x => x.Category).ToList();
+            return View(products);
+        }
+
         [HttpPost]
         public IActionResult Tracking(int id)
         {
